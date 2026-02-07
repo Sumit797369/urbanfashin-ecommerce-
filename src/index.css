@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@font-face{
+    font-family: Anton;
+    src: url(./fonts/Anton/Anton-Regular.ttf)
+}
+@font-face{
+    font-family: zalando;
+    src: url(./fonts/Zalando_Sans_Expanded/ZalandoSansExpanded-VariableFont_wght.ttf)
+}
+
+a.active hr{
+    display: block;
+}
