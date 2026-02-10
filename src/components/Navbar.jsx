@@ -8,12 +8,11 @@ const Navbar = () => {
   const isHome = location.pathname === "/";
   const [open, setOpen] = useState(false); // ✅ ADDED
 
-
   return (
     <>
       <div
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-          ${isHome ? "bg-transparent text-black" : "bg-white text-black shadow-sm"}
+        className={`fixed h-20 top-0 left-0 w-full z-50 transition-all duration-300
+          ${isHome ? "bg-transparent text-white" : "bg-white text-black shadow-sm"}
         `}
       >
         <div className="h-20 px-4 sm:px-10 flex items-center justify-between">
@@ -51,25 +50,29 @@ const Navbar = () => {
           {/* CENTER LOGO (SAME) */}
           <NavLink
             to="/"
-            className=" sm:text-3xl font-[Anton] leading-none "
+            className="absolute left-1/2 transform -translate-x-1/2 sm:text-3xl font-[Anton] leading-none"
           >
-            URBAN FASHION
+            KIK GADGETS
           </NavLink>
-
 
           {/* RIGHT ICONS (SAME POSITION) */}
           <div className="flex items-center gap-4 sm:gap-6">
-            <img
-              src={assets.search_icon}
-              className="w-5 cursor-pointer"
-              alt=""
-            />
+           <img
+  src={assets.search_icon}
+  className={`w-5 cursor-pointer transition-all duration-300 
+    ${isHome ? "invert" : "invert-0"}
+  `}
+  alt=""
+/>
             <div className="group relative">
-              <img
-                src={assets.profile_icon}
-                className="w-5 cursor-pointer"
-                alt=""
-              />
+             <img
+  src={assets.profile_icon}
+  className={`w-5 cursor-pointer transition-all duration-300 
+    ${isHome ? "invert" : "invert-0"}
+  `}
+  alt=""
+/>
+
 
               <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
                 <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-600 rounded">
@@ -80,12 +83,23 @@ const Navbar = () => {
               </div>
             </div>
             <Link to="/cart" className="relative">
-              <img
-                src={assets.cart_icon}
-                className="w-5 cursor-pointer"
-                alt=""
-              />
-              <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">10</p>
+             <img
+  src={assets.cart_icon}
+  className={`w-5 cursor-pointer transition-all duration-300 
+    ${isHome ? "invert" : "invert-0"}
+  `}
+  alt=""
+/>
+
+              <p
+  className={`absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 
+    aspect-square rounded-full text-[8px]
+    ${isHome ? "bg-white text-black" : "bg-black text-white"}
+  `}
+>
+  10
+</p>
+
             </Link>
             {/* <User className="cursor-pointer" />
             <Heart className="cursor-pointer" /> */}
@@ -115,7 +129,7 @@ const Navbar = () => {
           <X className="cursor-pointer" onClick={() => setOpen(false)} />
         </div>
 
-        <div className="flex flex-col gap-6 p-6 font-semibold">
+        <div className="flex  flex-col gap-6 p-6 font-semibold">
           <NavLink to="/" onClick={() => setOpen(false)}>
             Home
           </NavLink>
@@ -134,7 +148,7 @@ const Navbar = () => {
       {/* ✅ BACKDROP */}
       {open && (
         <div
-          className="fixed  inset-0 bg-black/40 z-[55]"
+          className="fixed inset-0 bg-black/40 z-[55]"
           onClick={() => setOpen(false)}
         />
       )}

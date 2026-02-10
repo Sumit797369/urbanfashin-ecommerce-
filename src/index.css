@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 @font-face{
     font-family: Anton;
     src: url(./fonts/Anton/Anton-Regular.ttf)
@@ -12,3 +19,10 @@
 a.active hr{
     display: block;
 }
+
+/* @media(max-width:640px){
+    a.active{
+        background-color: black;
+        color:white;
+    }
+} */

@@ -11,13 +11,19 @@ import PlaceOrder from './pages/PlaceOrder'
 import Orders from './pages/Orders'
 import Navbar from './components/Navbar'
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
+import ShippingPolicy from './pages/ShippingPolicy'
+import ReturnRefund from './pages/ReturnRefund'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import Terms from './pages/Terms'
 
 const App = () => {
   
   return (
-   <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <>
     <Navbar/>
     
+   {/* <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'> */}
+    <div>
 
 <Routes>
   <Route path='/' element={<Home/>}/>
@@ -29,9 +35,14 @@ const App = () => {
   <Route path='/login' element={<Login/>}/>
   <Route path='/Place-Order' element={<PlaceOrder/>}/>
   <Route path='/orders' element={<Orders/>}/>
+  <Route path="/shipping-policy" element={<ShippingPolicy />} />
+<Route path="/return-refund" element={<ReturnRefund />} />
+<Route path="/privacy-policy" element={<PrivacyPolicy />} />
+<Route path="/terms" element={<Terms />} />
+
 </Routes>
    </div>
-    
+    </>
   )
 }
 
