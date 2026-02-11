@@ -16,11 +16,13 @@ import ReturnRefund from "./pages/ReturnRefund";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Footer from "./components/Footer";
+import SearchBar from "./components/SearchBar";
 
 const App = () => {
   return (
     <>
       <Navbar />
+      <SearchBar/>
 
       {/* <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'> */}
       <div>
