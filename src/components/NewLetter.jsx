@@ -1,6 +1,9 @@
 import React from "react";
 
 const Newsletter = () => {
+  const submitHandler =(e)=>{
+e.preventDefault();
+  }
   return (
     <section className="w-full py-16 bg-white">
       <div className="max-w-4xl mx-auto px-6 text-center">
@@ -16,7 +19,7 @@ const Newsletter = () => {
         </p>
 
         {/* Form */}
-        <form className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <form onSubmit={submitHandler} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           
           {/* Input */}
           <input
