@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { assets } from "../assets/frontend_assets/assets";
 import { User, Heart, Search, ShoppingBag, Menu, X } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const [open, setOpen] = useState(false); // ✅ ADDED
+const { setShowSearch } = useContext(ShopContext);
 
   return (
     <>
@@ -57,8 +59,9 @@ const Navbar = () => {
 
           {/* RIGHT ICONS (SAME POSITION) */}
           <div className="flex items-center gap-4 sm:gap-6">
-           <img
+<img
   src={assets.search_icon}
+  onClick={() => setShowSearch(true)}
   className={`w-5 cursor-pointer transition-all duration-300 
     ${isHome ? "invert" : "invert-0"}
   `}
