@@ -1,68 +1,100 @@
-import React from 'react'
+import React, { useState } from "react";
 
-import { X } from "lucide-react";
+const Login = () => {
+  const [isLogin, setIsLogin] = useState(true);
 
-const Login = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
   return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-      <div className="relative w-[90%] max-w-4xl rounded-xl overflow-hidden bg-white flex shadow-2xl">
+    <section className="w-full min-h-screen flex items-center justify-center pt-28 pb-20 px-6 bg-gradient-to-br from-gray-100 via-white to-gray-200">
 
-        {/* LEFT SECTION */}
-        <div className="w-1/2 bg-black text-white flex flex-col justify-center items-center p-10">
-          <h1 className="text-4xl font-extrabold tracking-wide">
-            BONKERS<br />CORNER
-          </h1>
+      {/* Premium Card */}
+      <div className="w-full max-w-md bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-10 border border-gray-200">
 
-          <p className="mt-6 text-lg font-semibold">Welcome!</p>
-          <p className="text-sm mt-1 opacity-80">
-            Register to avail the best deals!
-          </p>
-        </div>
+        {/* Heading */}
+        <h1 className="text-3xl font-extrabold text-center mb-3 tracking-tight">
+          {isLogin ? "Welcome Back 👋" : "Create Your Account 🚀"}
+        </h1>
 
-        {/* RIGHT SECTION */}
-        <div className="w-1/2 p-10 relative">
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 text-gray-400 hover:text-black"
-          >
-            <X size={22} />
-          </button>
+        <p className="text-gray-600 text-center mb-8 text-sm">
+          {isLogin
+            ? "Login to continue shopping premium gadgets."
+            : "Sign up and start your journey with KIK GADGETS."}
+        </p>
 
-          <h2 className="text-2xl font-bold mb-6">Login / Signup</h2>
+        {/* Form */}
+        <form className="space-y-5">
 
-          <label className="text-sm font-medium text-gray-600">
-            Enter Mobile Number
-          </label>
-
-          <div className="mt-2 flex items-center border rounded-md overflow-hidden">
-            <span className="px-3 border-r bg-gray-100">🇮🇳 +91</span>
+          {/* Name (Register Only) */}
+          {!isLogin && (
             <input
-              type="tel"
-              placeholder="Enter Mobile Number"
-              className="w-full px-4 py-3 outline-none"
+              type="text"
+              placeholder="Full Name"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black transition"
             />
-          </div>
+          )}
 
-          <button className="w-full mt-6 bg-black text-white py-3 rounded-md font-semibold hover:bg-gray-900">
-            Continue
+          {/* Email */}
+          <input
+            type="email"
+            placeholder="Email Address"
+            className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black transition"
+          />
+
+          {/* Password */}
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black transition"
+          />
+
+          {/* Forgot Password */}
+          {isLogin && (
+            <p className="text-sm text-right text-gray-500 cursor-pointer hover:text-black transition">
+              Forgot Password?
+            </p>
+          )}
+
+          {/* Main Button */}
+          <button
+            type="submit"
+            className="w-full bg-black text-white py-3 rounded-xl font-semibold hover:bg-gray-900 transition duration-300 shadow-md"
+          >
+            {isLogin ? "Login" : "Sign Up"}
           </button>
+        </form>
 
-          <p className="text-xs text-gray-400 mt-4">
-            By logging in, you agree to our{" "}
-            <span className="underline cursor-pointer">Privacy Policy</span>{" "}
-            &{" "}
-            <span className="underline cursor-pointer">Terms of Service</span>
-          </p>
-
-          <p className="text-xs text-center mt-4 underline cursor-pointer text-gray-500">
-            Trouble logging in?
-          </p>
+        {/* Divider */}
+        <div className="flex items-center gap-3 my-7">
+          <div className="flex-1 h-[1px] bg-gray-300"></div>
+          <p className="text-xs text-gray-500">OR</p>
+          <div className="flex-1 h-[1px] bg-gray-300"></div>
         </div>
+
+        {/* Google Button (UI Only) */}
+        <button
+          className="w-full flex items-center justify-center gap-3 border border-gray-300 py-3 rounded-xl hover:bg-gray-50 transition font-medium"
+        >
+          <img
+            src="https://www.svgrepo.com/show/475656/google-color.svg"
+            alt="google"
+            className="w-5"
+          />
+          Continue with Google
+        </button>
+
+        {/* Toggle */}
+        <p className="text-sm text-center mt-8 text-gray-600">
+          {isLogin ? "New here?" : "Already have an account?"}
+
+          <span
+            onClick={() => setIsLogin(!isLogin)}
+            className="ml-2 font-semibold text-black cursor-pointer hover:underline"
+          >
+            {isLogin ? "Create Account" : "Login"}
+          </span>
+        </p>
       </div>
-    </div>
-  )
-}
+    </section>
+  );
+};
 
-export default Login
-
+export default Login;
