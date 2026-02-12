@@ -7,8 +7,8 @@ const About = () => {
 
         {/* ================= HEADING ================= */}
         <div className="text-center mb-14">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            About <span className="text-gray-600">KIK GADGETS</span>
+          <h1 className="text-4xl md:text-5xl  font-extrabold mb-4">
+            About KIK<span className=" text-gray-600"> GADGETS</span>
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto leading-7">
             Welcome to KIK GADGETS — your one-stop destination for premium

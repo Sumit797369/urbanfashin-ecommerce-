@@ -54,7 +54,7 @@ const { setShowSearch } = useContext(ShopContext);
             to="/"
             className="absolute left-1/2 transform -translate-x-1/2 sm:text-3xl font-[Anton] leading-none"
           >
-            KIK GADGETS
+            KIK <span className={`${isHome ? "bg-transparent text-white" : "bg-white text-[#4A5565]"}`} >GADGETS</span>
           </NavLink>
 
           {/* RIGHT ICONS (SAME POSITION) */}
