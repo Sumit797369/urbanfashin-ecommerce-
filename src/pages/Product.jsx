@@ -6,12 +6,15 @@ const Product = () => {
   const {productId} = useParams();
  const {products} = useContext(ShopContext);
  const [productData,setProdutData]=useState(false);
+ const [image,setImage] = useState('')
 
- const fetchProductData = async =()=>{
+ const fetchProductData = async ()=>{
 
   products.map((item)=>{
     if(item._id === productId){
       setProdutData(item);
+      console.log(item);
+      setImage(item.image[0])
       return null;
     }
 
