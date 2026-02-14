@@ -9,6 +9,13 @@ const Product = () => {
 
  const fetchProductData = async =()=>{
 
+  products.map((item)=>{
+    if(item._id === productId){
+      setProdutData(item);
+      return null;
+    }
+
+  })
  }
 
  useEffect(()=>{
