@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { ShopContext } from '../context/ShopContext';
 
 const Product = () => {
   const {productId} = useParams();
-  console.log(productId);
+ const {products} = useContext(ShopContext);
+ const [productData,setProdutData]=useState(false)
   
   return (
     <div>
