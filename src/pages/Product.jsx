@@ -13,7 +13,7 @@ const Product = () => {
   products.map((item)=>{
     if(item._id === productId){
       setProdutData(item);
-      console.log(item);
+       
       setImage(item.image[0])
       return null;
     }
@@ -24,11 +24,11 @@ const Product = () => {
  useEffect(()=>{
 fetchProductData();
  },[productId,products])
-  return (
-    <div>
+  return productData ? (
+    <div className=' border-t-2 pt-10 trasn'>
       
     </div>
-  )
+  ) : <div className='opacity-0' ></div>
 }
 
 export default Product
