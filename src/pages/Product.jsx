@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 
 const Product = () => {
@@ -9,7 +9,7 @@ const Product = () => {
   const [productData, setProductData] = useState(null);
   const [image, setImage] = useState("");
   const [qty, setQty] = useState(1);
-
+const navigate = useNavigate();
   // ✅ Fetch Product Data
   useEffect(() => {
     const product = products.find((item) => item._id === productId);
@@ -28,6 +28,12 @@ const Product = () => {
       </div>
     );
   }
+
+  const handleBuyNow = () => {
+  addToCart(productData._id, qty); // pehle cart me add karega
+  navigate("/checkout"); // direct checkout page pe le jayega
+};
+
 
   return (
     <section className="w-full pt-28 pb-20 px-6">
@@ -110,12 +116,26 @@ const Product = () => {
             </div>
 
             {/* Add To Cart Button */}
-            <button
-              onClick={() => addToCart(productData._id, qty)}
-              className="w-full sm:w-auto bg-black text-white px-10 py-4 rounded-xl font-semibold hover:bg-gray-900 transition shadow-md"
-            >
-              Add to Cart
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4">
+
+  {/* Add to Cart */}
+  <button
+    onClick={() => addToCart(productData._id, qty)}
+    className="flex-1 bg-black text-white px-10 py-4 rounded-xl font-semibold hover:bg-gray-900 transition shadow-md"
+  >
+    Add to Cart
+  </button>
+
+  {/* Buy Now */}
+  <button
+    onClick={handleBuyNow}
+    className="flex-1 bg-orange-500 text-white px-10 py-4 rounded-xl font-semibold hover:bg-orange-600 transition shadow-md"
+  >
+    Buy Now
+  </button>
+
+</div>
+
 
             {/* Extra Info */}
             <div className="mt-10 space-y-3 text-sm text-gray-500">
