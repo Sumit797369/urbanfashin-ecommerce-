@@ -21,10 +21,15 @@ const Cart = () => {
   });
 
   // ✅ Total Price Calculation
-  const total = cartData.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  // ✅ Total Price Calculation (Fixed)
+const total = Object.keys(cartItems).reduce((acc, id) => {
+  const product = products.find((item) => item._id === id);
+
+  if (!product) return acc; // safety
+
+  return acc + product.price * cartItems[id];
+}, 0);
+
   
 
   return (
