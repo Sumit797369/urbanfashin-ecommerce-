@@ -10,7 +10,7 @@ const Product = () => {
   const [productData, setProductData] = useState(null);
   const [image, setImage] = useState("");
   const [qty, setQty] = useState(1);
-  const[size,setSize] = useState('')
+  // const[size,setSize] = useState('')
   const navigate = useNavigate();
   // ✅ Fetch Product Data
   useEffect(() => {
@@ -112,7 +112,7 @@ const Product = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Add to Cart */}
               <button
-                onClick={() => addToCart(productData._id, size)}
+                onClick={() => addToCart(productData._id, qty)}
                 className="flex-1 bg-black text-white px-10 py-4 rounded-xl font-semibold hover:bg-gray-900 transition shadow-md"
               >
                 Add to Cart

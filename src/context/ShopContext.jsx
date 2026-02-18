@@ -17,6 +17,10 @@ const ShopContextProvider = (props) => {
   // ✅ ADDED: Add To Cart Function
   const addToCart = (id, qty = 1) => {
     setCartItems((prev) => {
+      if(!qty){
+        toast.error('Select Product Size');
+        return
+      }
       let cartData = { ...prev };
 
       if (cartData[id]) {

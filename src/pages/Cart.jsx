@@ -25,6 +25,7 @@ const Cart = () => {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+  
 
   return (
     <section className="w-full pt-28 pb-20 px-6">

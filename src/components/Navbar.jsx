@@ -10,6 +10,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false); // ✅ ADDED
 const { setShowSearch } = useContext(ShopContext);
 
+const {getCartCount}=useContext(ShopContext)
+
   return (
     <>
       <div
@@ -94,14 +96,15 @@ const { setShowSearch } = useContext(ShopContext);
   alt=""
 />
 
-              <p
+             <p
   className={`absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 
     aspect-square rounded-full text-[8px]
     ${isHome ? "bg-white text-black" : "bg-black text-white"}
   `}
 >
-  10
+  {getCartCount()}
 </p>
+
 
             </Link>
             {/* <User className="cursor-pointer" />
