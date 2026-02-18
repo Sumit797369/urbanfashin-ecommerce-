@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { products } from "../assets/frontend_assets/assets";
 import Product from "../pages/Product";
 
@@ -11,9 +11,17 @@ const ShopContextProvider = (props) => {
 
   const [search,setSearch]=useState('');
   const [showSearch,setShowSearch]=useState(false);
+// ✅ Load Cart From LocalStorage
+  const [cartItems, setCartItems] = useState(() => {
+  const savedCart = localStorage.getItem("cartItems");
+  return savedCart ? JSON.parse(savedCart) : {};
+});
 
-  // ✅ ADDED CART STATE
-  const [cartItems, setCartItems] = useState({});
+// ✅ Save Cart To LocalStorage on Every Update
+useEffect(() => {
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+}, [cartItems]);
+
 
   // ✅ ADDED: Add To Cart Function
   const addToCart = (id, qty = 1) => {
@@ -49,19 +57,7 @@ const ShopContextProvider = (props) => {
     });
   };
 
-//   const getCartAmount = async =>{
-// let totalAmount = 0;
-// for(const items in cartItems){
-//   let itemInfo = products.find((Product)=> Product._id === items);
-//   for(const items in cartItems[items] ){
-//     try{
-//       if(cartItems[items][item]>0){
 
-//       }
-//     }
-//   }
-// }
-//   }
   // ✅ ADDED: Remove From Cart Function
   const removeFromCart = (id) => {
     setCartItems((prev) => {
@@ -93,6 +89,16 @@ const ShopContextProvider = (props) => {
     removeFromCart,
     getCartCount
   };
+  
+
+  
+// Extra Option (Logout पर cart clear)
+
+// अगर future में logout पर clear करना हो:
+
+// localStorage.removeItem("cartItems");
+// setCartItems({});
+
 
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
