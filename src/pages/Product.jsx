@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
+import RelatedProducts from "../components/RelatedProducts";
 
 const Product = () => {
   const { productId } = useParams();
@@ -134,6 +135,7 @@ const Product = () => {
           </div>
         </div>
       </div>
+      <RelatedProducts category={productData.category} subCategory={productData.subCategory}/>
     </section>
   );
 };
