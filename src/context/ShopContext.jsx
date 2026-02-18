@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { products } from "../assets/frontend_assets/assets";
+import Product from "../pages/Product";
 
 export const ShopContext = createContext();
 
@@ -48,6 +49,19 @@ const ShopContextProvider = (props) => {
     });
   };
 
+//   const getCartAmount = async =>{
+// let totalAmount = 0;
+// for(const items in cartItems){
+//   let itemInfo = products.find((Product)=> Product._id === items);
+//   for(const items in cartItems[items] ){
+//     try{
+//       if(cartItems[items][item]>0){
+
+//       }
+//     }
+//   }
+// }
+//   }
   // ✅ ADDED: Remove From Cart Function
   const removeFromCart = (id) => {
     setCartItems((prev) => {
@@ -84,5 +98,4 @@ const ShopContextProvider = (props) => {
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
   );
 };
-
 export default ShopContextProvider;

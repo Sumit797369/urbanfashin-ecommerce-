@@ -3,13 +3,8 @@ import { ShopContext } from "../context/ShopContext";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const {
-    cartItems,
-    products,
-    currency,
-    updateQuantity,
-    removeFromCart,
-  } = useContext(ShopContext);
+  const { cartItems, products, currency, updateQuantity, removeFromCart } =
+    useContext(ShopContext);
 
   // ✅ Convert cart object into array
   const cartData = Object.keys(cartItems).map((id) => {
@@ -22,20 +17,13 @@ const Cart = () => {
 
   // ✅ Total Price Calculation
   // ✅ Total Price Calculation (Fixed)
-const total = Object.keys(cartItems).reduce((acc, id) => {
-  const product = products.find((item) => item._id === id);
-
-  if (!product) return acc; // safety
-
-  return acc + product.price * cartItems[id];
+ const total = cartData.reduce((acc, item) => {
+  return acc + item.price * cartItems[item._id];
 }, 0);
-
-  
 
   return (
     <section className="w-full pt-28 pb-20 px-6">
       <div className="max-w-6xl mx-auto">
-
         {/* Heading */}
         <h1 className="text-3xl font-bold mb-10">Your Cart 🛒</h1>
 
@@ -54,7 +42,6 @@ const total = Object.keys(cartItems).reduce((acc, id) => {
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-
             {/* Cart Items */}
             <div className="lg:col-span-2 space-y-6">
               {cartData.map((item) => (
@@ -83,20 +70,18 @@ const total = Object.keys(cartItems).reduce((acc, id) => {
                     <div className="flex items-center gap-3 mt-4">
                       <button
                         onClick={() =>
-                          updateQuantity(item._id, item.quantity - 1)
+                          updateQuantity(item._id, cartItems[item._id] - 1)
                         }
-                        className="px-3 py-1 border rounded-md hover:bg-gray-100"
                       >
                         -
                       </button>
 
-                      <p className="font-medium">{item.quantity}</p>
+                      <p>{cartItems[item._id]}</p>
 
                       <button
                         onClick={() =>
-                          updateQuantity(item._id, item.quantity + 1)
+                          updateQuantity(item._id, cartItems[item._id] + 1)
                         }
-                        className="px-3 py-1 border rounded-md hover:bg-gray-100"
                       >
                         +
                       </button>

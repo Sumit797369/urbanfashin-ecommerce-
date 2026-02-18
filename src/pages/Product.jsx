@@ -11,7 +11,11 @@ const Product = () => {
   const [image, setImage] = useState("");
   const [qty, setQty] = useState(1);
   // const[size,setSize] = useState('')
+  const [added, setAdded] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
   const navigate = useNavigate();
+
   // ✅ Fetch Product Data
   useEffect(() => {
     const product = products.find((item) => item._id === productId);
@@ -33,9 +37,29 @@ const Product = () => {
     addToCart(productData._id, qty); // pehle cart me add karega
     navigate("/checkout"); // direct checkout page pe le jayega
   };
+  const handleAddToCart = () => {
+    addToCart(productData._id, qty);
+
+    // ✅ Show Toast
+    setShowToast(true);
+    setAdded(true);
+
+    // Toast auto hide after 2 sec
+    setTimeout(() => {
+      setShowToast(false);
+    }, 2000);
+  };
 
   return (
+    
     <section className="w-full pt-28 pb-20 px-6">
+      {/* ✅ Toast Notification */}
+{showToast && (
+  <div className="fixed top-24 right-6 bg-black text-white px-6 py-3 rounded-xl shadow-lg z-[200] animate-bounce">
+    ✅ Item added to cart!
+  </div>
+)}
+
       <div className="max-w-6xl mx-auto">
         {/* ================= PRODUCT WRAPPER ================= */}
         <div className="flex flex-col lg:flex-row gap-12">
@@ -112,10 +136,16 @@ const Product = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Add to Cart */}
               <button
-                onClick={() => addToCart(productData._id, qty)}
+                onClick={() => {
+                  if (!added) {
+                    handleAddToCart();
+                  } else {
+                    navigate("/cart");
+                  }
+                }}
                 className="flex-1 bg-black text-white px-10 py-4 rounded-xl font-semibold hover:bg-gray-900 transition shadow-md"
               >
-                Add to Cart
+                {added ? "Go to Cart 🛒" : "Add to Cart"}
               </button>
 
               {/* Buy Now */}
@@ -136,7 +166,10 @@ const Product = () => {
           </div>
         </div>
       </div>
-      <RelatedProducts category={productData.category} subCategory={productData.subCategory}/>
+      <RelatedProducts
+        category={productData.category}
+        subCategory={productData.subCategory}
+      />
     </section>
   );
 };
