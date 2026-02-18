@@ -17,10 +17,12 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
+import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
   return (
     <>
+    <ToastContainer />
       <Navbar />
       <SearchBar/>
 
