@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cartItems, products, currency, updateQuantity, removeFromCart } =
     useContext(ShopContext);
-
+  const navigate = useNavigate();
   // ✅ Convert cart object into array
   const cartData = Object.keys(cartItems).map((id) => {
     const product = products.find((item) => item._id === id);
@@ -17,9 +17,9 @@ const Cart = () => {
 
   // ✅ Total Price Calculation
   // ✅ Total Price Calculation (Fixed)
- const total = cartData.reduce((acc, item) => {
-  return acc + item.price * cartItems[item._id];
-}, 0);
+  const total = cartData.reduce((acc, item) => {
+    return acc + item.price * cartItems[item._id];
+  }, 0);
 
   return (
     <section className="w-full pt-28 pb-20 px-6">
@@ -129,7 +129,11 @@ const Cart = () => {
                 </p>
               </div>
 
-              <button className="w-full bg-black text-white py-4 rounded-xl font-semibold hover:bg-gray-900 transition">
+              <button
+                disabled={cartData.length === 0}
+                onClick={() => navigate("/place-order")}
+                className="w-full bg-black text-white py-4 rounded-xl font-semibold hover:bg-gray-900 transition"
+              >
                 Proceed to Checkout
               </button>
             </div>

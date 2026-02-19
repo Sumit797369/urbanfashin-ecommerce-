@@ -35,7 +35,7 @@ const Product = () => {
 
   const handleBuyNow = () => {
     addToCart(productData._id, qty); // pehle cart me add karega
-    navigate("/checkout"); // direct checkout page pe le jayega
+    navigate("/place-Order"); // direct checkout page pe le jayega
   };
   const handleAddToCart = () => {
     addToCart(productData._id, qty);
