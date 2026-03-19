@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Brand Section */}
         <div>
           <h2 className="text-2xl font-bold text-white mb-4">
-            KIK GADGETS
+            URBAN FASHION
           </h2>
           <p className="text-sm leading-6">
             Your one-stop shop for trending fashion, sneakers, and premium
@@ -93,7 +93,7 @@ const Footer = () => {
         <div>
           <h3 className="text-white font-semibold mb-4">Get in Touch</h3>
           <ul className="space-y-3 text-sm">
-            <li>Email: support@kikgadgets.com</li>
+            <li>Email: support@urbanfashion.com</li>
             <li>Phone: +91 98765 43210</li>
             <li>Location: New Delhi, India</li>
           </ul>
@@ -102,7 +102,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700 mt-10 py-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} KIK GADGETS. All Rights Reserved.
+        © {new Date().getFullYear()} URBAN FASHION. All Rights Reserved.
       </div>
     </footer>
   );

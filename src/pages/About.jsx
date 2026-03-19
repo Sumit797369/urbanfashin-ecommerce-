@@ -8,7 +8,7 @@ const About = () => {
         {/* ================= HEADING ================= */}
         <div className="text-center mb-14">
           <h1 className="text-4xl md:text-5xl  font-extrabold mb-4">
-            About KIK<span className=" text-gray-600"> GADGETS</span>
+            About URBAN<span className=" text-gray-600"> FASHION</span>
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto leading-7">
             Welcome to KIK GADGETS — your one-stop destination for premium
@@ -26,7 +26,7 @@ const About = () => {
               Our Story
             </h2>
             <p className="text-gray-700 leading-7 mb-4">
-              At <span className="font-semibold">KIK GADGETS</span>, we started
+              At <span className="font-semibold">URBAN FASHION</span>, we started
               with a simple mission: to bring the latest and most innovative
               gadgets to everyone at affordable prices.
             </p>
@@ -40,9 +40,10 @@ const About = () => {
           {/* Right Image */}
           <div>
             <img
-              src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+              // src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+              src="https://i.pinimg.com/1200x/38/3b/7b/383b7b4d5529ccb52abebdfe2fc42cdc.jpg"
               alt="about"
-              className="rounded-2xl shadow-md object-cover w-full h-[350px]"
+              className="rounded-2xl shadow-md object-cover w-full h-[450px]"
             />
           </div>
         </div>
@@ -93,7 +94,7 @@ const About = () => {
         {/* ================= CTA SECTION ================= */}
         <div className="bg-black text-white rounded-2xl p-12 text-center">
           <h2 className="text-3xl font-bold mb-4">
-            Join the KIK GADGETS Community 🚀
+            Join the URBAN FASHION Community 🚀
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-6">
             Explore our latest collections and upgrade your lifestyle with the
