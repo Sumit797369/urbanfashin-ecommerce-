@@ -16,7 +16,7 @@ const OurPolicy = () => {
     {
       icon: <ShieldCheck size={32} />,
       title: "Secure Payments",
-      desc: "100% safe and secure payment options with encrypted checkout.",
+      desc: "100% safe & secure payment options with encrypted checkout.",
     },
     {
       icon: <Headphones size={32} />,
