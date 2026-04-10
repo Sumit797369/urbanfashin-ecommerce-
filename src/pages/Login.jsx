@@ -49,7 +49,7 @@ const Login = () => {
           {/* Forgot Password */}
           {isLogin && (
             <p className="text-sm text-right text-gray-500 cursor-pointer hover:text-black transition">
-              Forgot Password?
+              Forgot  Password?
             </p>
           )}
 
